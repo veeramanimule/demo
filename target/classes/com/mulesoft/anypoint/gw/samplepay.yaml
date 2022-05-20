@@ -1,0 +1,102 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Testing
+paths: 
+  /employee:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmpPost"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/EmpPost"
+          
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmpRes"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/EmpRes"
+        '400':
+          description: Bad Request.
+          content: {}
+        '401':
+          description: Authorization information is 
+              missing or invalid.
+          content: {}
+        '403':
+          description: Access token does not have the         required scope.
+          content: {}
+        '404':
+          description: Service not found.
+          content: {}
+        '405':
+          description: Invalid input.
+          content: {}
+        "408":
+          description: Request timeout.
+          content: {}
+        "411":
+          description: Length required
+          content: {}
+        "412":
+          description: Precondition failed
+          content: {}
+        "413":
+          description: Payload too large
+          content: {}
+        "414":
+          description: URI too long
+          content: {}
+        "415":
+          description: Unsupported media type
+          content: {}
+        "429":
+          description: Too many requests calls allowed by the client
+          content: {}
+        "500":
+          description: Internal server error
+          content: {}
+        "503":
+          description: Service unavailable
+          content: {}
+        "505":
+          description: HTTP version not supported
+          content: {}
+        default:
+          description: Unknown Error.
+          content: {}
+
+
+components:
+  schemas:
+    EmpPost:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "4107"
+        name:
+          type: string
+          example: "mani"
+        phoneNumber:
+          type: string
+          example: "9597703177"
+    EmpRes:
+      type: object
+      properties:
+        EmpId:
+          type: string
+          example: "4107"
+        EmpDes:
+          type: string
+          example: "software"
+        
+          
